@@ -1,0 +1,10 @@
+{
+   "extDesc": {
+      "description": "Description of the extension in the Google Chrome Web Store",
+      "message": "AI copilot integrated into YouTube providing real-time summaries, deep insights, and interactive timestamped transcripts."
+   },
+   "extName": {
+      "description": "Name of the extension in the Google Chrome Web Store",
+      "message": "TubeMind AI — YouTube Video Copilot"
+   }
+}

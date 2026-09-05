@@ -1,0 +1,502 @@
+/* TubeMind AI - Injected Inline YouTube Bar & Dropdown Stylesheet */
+
+/* --- Root Variables (YouTube Native Dark Palette) --- */
+:root {
+  --tm-bg: #1f1f1f; /* Fundo secundário do YouTube */
+  --tm-page-bg: #0f0f0f; /* Fundo principal do YouTube */
+  --tm-border: rgba(255, 255, 255, 0.1); /* Borda padrão de cards */
+  --tm-text: #f1f1f1; /* Texto primário */
+  --tm-text-dim: #aaaaaa; /* Texto secundário */
+  --tm-link: #3ea6ff; /* Azul nativo de links/timestamps */
+  --tm-chip-bg: #272727; /* Fundo padrão de chips do YouTube */
+  --tm-chip-active-bg: #ffffff; /* Fundo ativo */
+  --tm-chip-active-text: #0f0f0f; /* Texto ativo */
+}
+
+/* --- Inline CSS Reset --- */
+#tubemind-inline-container {
+  font-family: 'Inter', 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  margin: 0 0 16px 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+#tubemind-inline-container * {
+  box-sizing: border-box !important;
+}
+
+/* --- Horizontal Inline Bar --- */
+.tm-inline-bar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 8px 12px !important;
+  background: var(--tm-bg) !important;
+  border: 1px solid var(--tm-border) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  gap: 12px !important;
+}
+
+.tm-inline-brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  flex-shrink: 0 !important;
+}
+
+.tm-logo-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--tm-link);
+  box-shadow: 0 0 8px var(--tm-link);
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+.tm-title {
+  font-size: 1.25rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.015em !important;
+  margin: 0 !important;
+  line-height: 1.1 !important;
+  color: #ffffff !important;
+}
+
+/* --- Chips de IA (Idênticos aos do YouTube) --- */
+.tm-inline-chips {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  flex-wrap: wrap !important;
+}
+
+.tm-chip {
+  background: var(--tm-chip-bg) !important;
+  border: none !important;
+  color: #ffffff !important; /* Texto 100% legível por padrão */
+  padding: 8px 14px !important;
+  border-radius: 8px !important;
+  font-size: 1.0rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease, transform 0.1s ease !important;
+  outline: none !important;
+  line-height: 1.2 !important;
+}
+
+.tm-chip:hover {
+  background: #3f3f3f !important;
+  color: #ffffff !important;
+}
+
+.tm-chip.active {
+  background: var(--tm-chip-active-bg) !important;
+  color: var(--tm-chip-active-text) !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* --- Painel Dropdown Deslizante --- */
+.tm-inline-panel {
+  background: var(--tm-bg) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  
+  /* Comportamento de dropdown padrão (Colapsado) */
+  max-height: 0px !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  margin-top: 0px !important;
+  padding: 0 12px !important;
+  border-width: 0px !important;
+  border-style: solid !important;
+  border-color: var(--tm-border) !important;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              opacity 0.25s ease, 
+              padding 0.35s ease, 
+              margin-top 0.35s ease,
+              border-width 0.35s ease !important;
+}
+
+/* Estado Expandido (Ativo) */
+.tm-inline-panel.expanded {
+  max-height: 480px !important; /* Altura máxima para rolagem confortável */
+  opacity: 1 !important;
+  margin-top: 8px !important;
+  padding: 12px !important;
+  border-width: 1px !important;
+}
+
+/* --- Cabeçalho Interno do Painel --- */
+.tm-panel-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid var(--tm-border) !important;
+  margin-bottom: 10px !important;
+  flex-shrink: 0 !important;
+}
+
+.tm-panel-title {
+  font-size: 0.95rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+}
+
+.tm-status-tag {
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  font-size: 0.92rem !important;
+  color: var(--tm-text-dim) !important;
+  font-weight: 600 !important;
+}
+
+.tm-status-dot {
+  width: 6px;
+  height: 6px;
+  background: #2ba640; /* Verde clássico do YouTube */
+  border-radius: 50%;
+  box-shadow: 0 0 4px #2ba640;
+}
+
+.tm-status-dot.loading {
+  background: #f1c40f !important;
+  box-shadow: 0 0 4px #f1c40f !important;
+  animation: pulseDot 1s infinite alternate !important;
+}
+
+/* --- Painéis de Conteúdo --- */
+.tm-tab-content {
+  overflow-y: auto !important; /* Força scroll individual interno de aba */
+  flex: 1 !important;
+  display: none !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  padding-right: 6px !important;
+}
+
+.tm-tab-content.active {
+  display: flex !important;
+}
+
+/* --- ABAS: 1. Transcrição (Transcript) --- */
+.tm-search-box {
+  position: relative !important;
+  margin-bottom: 4px !important;
+  flex-shrink: 0 !important;
+}
+
+.tm-search-input {
+  width: 100% !important;
+  background: var(--tm-page-bg) !important;
+  border: 1px solid var(--tm-border) !important;
+  border-radius: 8px !important;
+  color: var(--tm-text) !important;
+  padding: 9px 12px 9px 32px !important;
+  font-size: 0.98rem !important;
+  outline: none !important;
+  transition: border-color 0.15s, box-shadow 0.15s !important;
+}
+
+.tm-search-input:focus {
+  border-color: #555555 !important;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.05) !important;
+}
+
+.tm-search-icon {
+  position: absolute !important;
+  left: 10px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: var(--tm-text-dim) !important;
+  font-size: 14px !important;
+  pointer-events: none !important;
+}
+
+.tm-transcript-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.tm-transcript-item {
+  display: flex !important;
+  gap: 10px !important;
+  padding: 6px 8px !important;
+  border-radius: 6px !important;
+  background: rgba(255, 255, 255, 0.01) !important;
+  border: 1px solid transparent !important;
+  transition: background-color 0.15s !important;
+}
+
+.tm-transcript-item:hover {
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+
+.tm-transcript-item.playing {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.tm-timestamp {
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  color: var(--tm-link) !important; /* Azul nativo do YouTube */
+  background: rgba(62, 166, 255, 0.1) !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
+  align-self: flex-start !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  border: 1px solid rgba(62, 166, 255, 0.15) !important;
+  white-space: nowrap !important;
+}
+
+.tm-timestamp:hover {
+  background: var(--tm-link) !important;
+  color: #0f0f0f !important;
+  box-shadow: 0 0 6px rgba(62, 166, 255, 0.3) !important;
+}
+
+.tm-transcript-text {
+  font-size: 0.94rem !important;
+  color: var(--tm-text-dim) !important;
+  line-height: 1.45 !important;
+}
+
+.tm-transcript-item.playing .tm-transcript-text {
+  color: #ffffff !important;
+  font-weight: 500 !important;
+}
+
+/* --- ABAS: 2. Resumo Rápido (Quick Summary) --- */
+.tm-summary-card {
+  background: rgba(255, 255, 255, 0.01) !important;
+  border: 1px solid var(--tm-border) !important;
+  border-radius: 8px !important;
+  padding: 12px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.tm-summary-blockquote {
+  border-left: 2px solid #555555 !important;
+  padding-left: 8px !important;
+  margin: 0 0 4px 0 !important;
+  font-size: 0.94rem !important;
+  color: var(--tm-text-dim) !important;
+  line-height: 1.45 !important;
+  font-style: italic !important;
+}
+
+.tm-bullet-title {
+  font-size: 0.94rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin-bottom: 2px !important;
+}
+
+.tm-bullets-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.tm-bullet-item {
+  display: flex !important;
+  gap: 6px !important;
+  font-size: 0.94rem !important;
+  color: var(--tm-text-dim) !important;
+  line-height: 1.45 !important;
+}
+
+.tm-bullet-icon {
+  font-size: 11px !important;
+  color: var(--tm-text-dim) !important;
+  flex-shrink: 0 !important;
+}
+
+/* --- ABAS: 3. Detalhes (Detailed) --- */
+.tm-accordion {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+}
+
+.tm-accordion-item {
+  background: rgba(255, 255, 255, 0.01) !important;
+  border: 1px solid var(--tm-border) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+.tm-accordion-header {
+  padding: 12px 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  font-size: 0.92rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  transition: background 0.15s !important;
+}
+
+.tm-accordion-header:hover {
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+
+.tm-accordion-chevron {
+  font-size: 10px !important;
+  color: var(--tm-text-dim) !important;
+  transition: transform 0.25s ease !important;
+}
+
+.tm-accordion-item.active .tm-accordion-chevron {
+  transform: rotate(180deg) !important;
+}
+
+.tm-accordion-content {
+  max-height: 0 !important;
+  overflow: hidden !important;
+  transition: max-height 0.25s cubic-bezier(0, 1, 0, 1) !important;
+  font-size: 0.9rem !important;
+  color: var(--tm-text-dim) !important;
+  line-height: 1.48 !important;
+  padding: 0 12px !important;
+}
+
+.tm-accordion-item.active .tm-accordion-content {
+  max-height: 600px !important;
+  padding: 0 12px 10px !important;
+}
+
+/* --- Custom Visible Scrollbars (Idêntico ao Chrome/YouTube) --- */
+.tm-tab-content::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+.tm-tab-content::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.tm-tab-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16) !important; /* Perfeitamente visível */
+  border-radius: 99px !important;
+}
+
+.tm-tab-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* --- Skeleton Shimmer para Carregamento --- */
+.tm-skeleton {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.02) 25%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.02) 75%) !important;
+  background-size: 200% 100% !important;
+  animation: skeletonShimmer 1.5s infinite !important;
+  border-radius: 4px !important;
+}
+
+@keyframes skeletonShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.8; }
+}
+
+/* --- Botão de Copiar (Premium Copy Button) --- */
+.tm-copy-btn {
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: var(--tm-text-dim) !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  outline: none !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+  user-select: none !important;
+}
+
+.tm-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff !important;
+}
+
+.tm-copy-btn:active {
+  transform: scale(0.95) !important;
+}
+
+.tm-copy-btn.copied {
+  background: rgba(43, 166, 64, 0.12) !important;
+  border-color: rgba(43, 166, 64, 0.35) !important;
+  color: #2ba640 !important;
+}
+
+/* --- Font Sizing Classes (Dynamic Preferences) --- */
+#tubemind-inline-container.font-small .tm-transcript-text,
+#tubemind-inline-container.font-small .tm-summary-blockquote,
+#tubemind-inline-container.font-small .tm-bullet-content,
+#tubemind-inline-container.font-small .tm-accordion-content {
+  font-size: 0.90rem !important;
+  line-height: 1.45 !important;
+}
+
+#tubemind-inline-container.font-medium .tm-transcript-text,
+#tubemind-inline-container.font-medium .tm-summary-blockquote,
+#tubemind-inline-container.font-medium .tm-bullet-content,
+#tubemind-inline-container.font-medium .tm-accordion-content {
+  font-size: 1.05rem !important;
+  line-height: 1.52 !important;
+}
+
+#tubemind-inline-container.font-large .tm-transcript-text,
+#tubemind-inline-container.font-large .tm-summary-blockquote,
+#tubemind-inline-container.font-large .tm-bullet-content,
+#tubemind-inline-container.font-large .tm-accordion-content {
+  font-size: 1.25rem !important;
+  line-height: 1.58 !important;
+}
+
+/* --- Anchor/Link Contrast & Legibility Styles --- */
+#tubemind-inline-container a, 
+#tubemind-inline-container a:link, 
+#tubemind-inline-container a:visited {
+  color: var(--tm-link) !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  display: inline-block !important;
+  margin: 2px 0 !important;
+  transition: color 0.15s ease, border-bottom 0.15s ease !important;
+  border-bottom: 1px dashed rgba(62, 166, 255, 0.4) !important;
+}
+
+#tubemind-inline-container a:hover, 
+#tubemind-inline-container a:active {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid #ffffff !important;
+}
+

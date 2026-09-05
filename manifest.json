@@ -1,0 +1,42 @@
+{
+   "action": {
+      "default_icon": {
+         "128": "icons/icon128.png",
+         "16": "icons/icon16.png",
+         "48": "icons/icon48.png"
+      }
+   },
+   "author": "4U.IA.BR",
+   "background": {
+      "service_worker": "background.js"
+   },
+   "content_scripts": [ {
+      "css": [ "content.css" ],
+      "js": [ "content.js" ],
+      "matches": [ "https://*.youtube.com/*" ],
+      "run_at": "document_end"
+   } ],
+   "default_locale": "pt_BR",
+   "description": "__MSG_extDesc__",
+   "homepage_url": "https://4u.ia.br",
+   "host_permissions": [ "https://4u.ia.br/*", "https://*.youtube.com/*" ],
+   "icons": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAn5zOob1d7A6sv2VRImUWuY1Hz4MH6mB9BOhOnhT/j00xV9Lani+jy9m7EnNt9IfXkLRDlCj1jy6wUApxhKcvWdytAA/ebbLh0lCfLJg1FZggYCFZSXNuNYg6n9r1hqSrmoM/cSMUjgZjcPqZYMz+cNuKWvYRSxjAZm7PkLBFQQ/vmUlYUm6MoP1LK4gQ5EHL4/n+ayCBEybj38DP0GM1hyWHX58AAtOrADb+NJscfk3bq/wPAhWKCx3dG4rR0b4IXuQun4gXvzWZMpJvRfWzLm4PItmcqLNkxf38uMJETEqFjnxX5wzRZbxojmqkYN/oaFGyd5t3jWLPsHk33QkqgQIDAQAB",
+   "manifest_version": 3,
+   "name": "__MSG_extName__",
+   "options_ui": {
+      "open_in_tab": true,
+      "page": "options/options.html"
+   },
+   "permissions": [ "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0.0",
+   "web_accessible_resources": [ {
+      "matches": [ "https://*.youtube.com/*" ],
+      "resources": [ "inject.js" ]
+   } ]
+}

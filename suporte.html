@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suporte | Support - 4U Ecosystem</title>
+    <style>
+        :root {
+            --bg: #030712;
+            --card: rgba(17, 24, 39, 0.7);
+            --primary: #7c3aed;
+            --secondary: #06b6d4;
+            --text: #f9fafb;
+            --text-dim: #9ca3af;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--card);
+            backdrop-filter: blur(20px);
+            padding: 50px;
+            border-radius: 32px;
+            border: 1px solid var(--border);
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5);
+        }
+        .header { text-align: center; margin-bottom: 50px; }
+        .logo-box { width: 70px; height: 70px; margin: 0 auto 20px; }
+        .logo-box img { width: 100%; height: 100%; object-fit: contain; }
+        
+        h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 10px; color: #fff; letter-spacing: -0.02em; }
+        .last-update { font-size: 0.85rem; color: var(--primary); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin-bottom: 40px; display: block; }
+
+        .bilingual-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            text-align: left;
+        }
+
+        .column-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--secondary);
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(6, 182, 212, 0.2);
+            padding-bottom: 8px;
+            font-weight: 800;
+        }
+
+        h2 { font-size: 1.1rem; color: #fff; margin: 30px 0 12px; font-weight: 700; }
+        p { font-size: 0.95rem; color: var(--text-dim); margin-bottom: 20px; }
+        
+        .btn-portal {
+            display: block; width: 100%; text-align: center;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: #fff; padding: 18px; border-radius: 16px;
+            text-decoration: none; font-weight: 800; margin-top: 40px;
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.2);
+            transition: all 0.2s;
+        }
+        .btn-portal:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(124, 58, 237, 0.3); }
+
+        .footer { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border); font-size: 0.8rem; color: rgba(255,255,255,0.1); }
+        a { color: var(--secondary); text-decoration: none; }
+
+        @media (max-width: 850px) {
+            .bilingual-grid { grid-template-columns: 1fr; gap: 60px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-box">
+                <img src="icons/icon128.png" alt="4U Logo">
+            </div>
+            <h1>Central de Suporte</h1>
+            <span class="last-update">Suporte Técnico / Technical Support</span>
+        </div>
+
+        <div class="bilingual-grid">
+            <!-- Coluna Português -->
+            <div class="lang-column">
+                <div class="column-title">Português</div>
+                
+                <h2>Como podemos ajudar?</h2>
+                <p>Encontrou um erro ou tem uma sugestão? Nossa equipe está pronta para ajudar você a ter a melhor experiência com as aplicações 4U.</p>
+
+                <h2>Passos Rápidos</h2>
+                <p>
+                    1. Verifique se a extensão está atualizada.<br>
+                    2. Reinicie o navegador se notar algo inesperado.<br>
+                    3. Limpe o cache se houver erros de interface.
+                </p>
+
+                <h2>Atendimento</h2>
+                <p>Nosso tempo médio de resposta é de 24h a 48h úteis via portal oficial.</p>
+            </div>
+
+            <!-- Coluna Inglês -->
+            <div class="lang-column">
+                <div class="column-title">English</div>
+
+                <h2>How can we help?</h2>
+                <p>Found a bug or have a suggestion? Our team is ready to help you have the best experience with 4U applications.</p>
+
+                <h2>Quick Steps</h2>
+                <p>
+                    1. Make sure the extension is updated.<br>
+                    2. Restart your browser if you notice something unexpected.<br>
+                    3. Clear cache if there are interface errors.
+                </p>
+
+                <h2>Customer Service</h2>
+                <p>Our average response time is 24h to 48h business days via official portal.</p>
+            </div>
+        </div>
+
+        <a href="https://4u.ia.br/#contact-form" target="_blank" class="btn-portal">
+            ACESSAR PORTAL DE CONTATO / ACCESS SUPPORT PORTAL
+        </a>
+
+        <div class="footer">
+            © 2026 4U.IA.BR • SUPORTE ESPECIALIZADO / SPECIALIZED SUPPORT
+        </div>
+    </div>
+</body>
+</html>

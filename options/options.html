@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TubeMind AI — Dashboard & Onboarding</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="glow-bg"></div>
+  
+  <div class="container">
+    <!-- Header -->
+    <header class="app-header">
+      <a href="#" id="logo-link" style="text-decoration: none; color: inherit; cursor: default;">
+        <div class="logo-area">
+          <div class="logo-box">
+            <div class="inner-glowing-dot"></div>
+          </div>
+          <div>
+            <h1 class="brand-title">TubeMind <span class="accent-text">AI</span></h1>
+            <p class="brand-subtitle">Copiloto Inteligente de Vídeos do YouTube</p>
+          </div>
+        </div>
+      </a>
+      <div class="header-badge">
+        <span class="status-dot"></span>
+        <span id="txt-premium">Membro do Ecossistema 4U</span>
+      </div>
+    </header>
+
+    <!-- Main Grid Layout -->
+    <main class="dashboard-grid">
+      
+      <!-- Coluna da Esquerda (Tutorial + Conta) -->
+      <div class="left-column" style="display: flex; flex-direction: column; gap: 32px;">
+        
+        <!-- Tutorial & Welcome -->
+        <section class="card glass-card">
+          <h2 class="card-title text-gradient" id="title-welcome">Bem-vindo ao Futuro do YouTube</h2>
+          <p class="card-description" id="desc-welcome">
+            O TubeMind AI foi instalado com sucesso. Agora, sempre que você assistir a qualquer vídeo no YouTube, uma barra lateral inteligente será integrada automaticamente no topo dos recomendados, oferecendo resumos, análises aprofundadas e uma transcrição indexada com saltos de tempo instantâneos.
+          </p>
+
+          <!-- Dynamic Slide Tutorial -->
+          <div class="tutorial-slider">
+            <div class="slide active" id="slide-1">
+              <div class="slide-icon">⚡</div>
+              <div class="slide-content">
+                <h3 id="slide1-title">Integração Nativa</h3>
+                <p id="slide1-desc">A barra fica fixa acima das recomendações. O layout do YouTube é preservado e não obstrui o player principal.</p>
+              </div>
+            </div>
+            <div class="slide" id="slide-2">
+              <div class="slide-icon">⏱️</div>
+              <div class="slide-content">
+                <h3 id="slide2-title">Timestamps Interativos</h3>
+                <p id="slide2-desc">Navegue pelas falas do vídeo clicando diretamente nos carimbos de tempo na aba de Transcrição.</p>
+              </div>
+            </div>
+            <div class="slide" id="slide-3">
+              <div class="slide-icon">💎</div>
+              <div class="slide-content">
+                <h3 id="slide3-title">Design Premium</h3>
+                <p id="slide3-desc">Visual minimalista e discreto que se camufla perfeitamente na página do YouTube com suporte total ao Modo Escuro.</p>
+              </div>
+            </div>
+            
+            <div class="slider-dots">
+              <span class="dot active" data-slide="1"></span>
+              <span class="dot" data-slide="2"></span>
+              <span class="dot" data-slide="3"></span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Conta & Créditos (4uLabs Unified) -->
+        <section class="card glass-card" id="account-card">
+          <h2 class="card-title text-gradient">Conta & Créditos (4uLabs)</h2>
+          <p class="card-description" style="margin-bottom: 8px;">
+            Acesse ou crie sua conta unificada <strong>4uLabs</strong>. Seus créditos e assinaturas são compartilhados instantaneamente com todas as ferramentas de IA do ecossistema (Keep AI, TubeMind AI e mais).
+          </p>
+
+          <!-- Form de Autenticação (Desconectado) -->
+          <div id="auth-logged-out">
+            <div class="auth-tabs">
+              <button type="button" class="auth-tab-btn active" id="tab-login">Fazer Login</button>
+              <button type="button" class="auth-tab-btn" id="tab-register">Registrar-se</button>
+            </div>
+
+            <div class="settings-form" style="margin-top: 15px;">
+              <div class="setting-group">
+                <label for="auth-email">Endereço de E-mail</label>
+                <input type="text" id="auth-email" placeholder="digite seu e-mail...">
+              </div>
+              <div class="setting-group">
+                <label for="auth-password">Senha de Acesso</label>
+                <input type="password" id="auth-password" placeholder="mínimo 6 caracteres...">
+              </div>
+
+              <div class="auth-actions" style="margin-top: 8px; display: flex; flex-direction: column; gap: 10px;">
+                <button type="button" class="btn btn-primary" id="btn-login">Entrar na Conta</button>
+                <button type="button" class="btn btn-primary" id="btn-register" style="display: none; background: linear-gradient(to right, #10b981, #059669);">Criar Conta Grátis</button>
+                <div id="auth-status-msg" class="save-status hidden" style="color: #ef4444; background: rgba(239, 68, 68, 0.08); border-color: rgba(239, 68, 68, 0.2);"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Informações de Login (Conectado) -->
+          <div id="auth-logged-in" style="display: none;">
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 12px; margin-bottom: 12px;">
+              <div>
+                <p style="font-size: 0.78rem; text-transform: uppercase; color: var(--text-dim); letter-spacing: 0.05em; margin: 0;">Usuário Logado</p>
+                <strong id="user-email-display" style="font-size: 1.05rem; color: #ffffff;">---</strong>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 10px;">
+                <span style="font-size: 0.9rem; color: var(--text-dim);">Saldo Disponível:</span>
+                <span class="credits-badge" id="user-credits-display">0</span>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <button type="button" class="btn btn-primary" id="btn-sync-credits" style="background: rgba(255, 255, 255, 0.08); border: 1px solid var(--border);">🔄 Sincronizar Saldo</button>
+              <button type="button" class="btn btn-primary" id="btn-show-checkout" style="background: linear-gradient(to right, #00c6ff, #0072ff); font-weight: 600;">🛒 Recarregar Créditos (PIX)</button>
+              <button type="button" class="btn btn-danger" id="btn-logout" style="margin-top: 5px;">Sair da Conta</button>
+            </div>
+
+            <!-- Painel de Checkout PIX In-App -->
+            <div id="checkout-panel" style="display: none; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);">
+              <h3 style="font-size: 1rem; font-weight: 600; color: #ffffff; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                <span>💎</span> Selecione um Pacote
+              </h3>
+              
+              <!-- Pacotes -->
+              <div class="package-grid" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px;">
+                <div class="package-card" id="pkg-0" data-index="0" style="cursor: pointer; border: 1px solid var(--border); border-radius: 12px; padding: 12px; display: flex; align-items: center; justify-content: space-between; transition: all 0.2s; background: rgba(255,255,255,0.01);">
+                  <div>
+                    <strong style="color: #ffffff; display: block; font-size: 0.95rem;">10 Créditos</strong>
+                    <span style="font-size: 0.8rem; color: var(--text-dim);">Bronze Package</span>
+                  </div>
+                  <span style="font-size: 1.05rem; font-weight: 700; color: var(--secondary);">R$ 4,90</span>
+                </div>
+                
+                <div class="package-card" id="pkg-1" data-index="1" style="cursor: pointer; border: 1px solid var(--border); border-radius: 12px; padding: 12px; display: flex; align-items: center; justify-content: space-between; transition: all 0.2s; background: rgba(255,255,255,0.01);">
+                  <div>
+                    <strong style="color: #ffffff; display: block; font-size: 0.95rem;">50 Créditos</strong>
+                    <span style="font-size: 0.8rem; color: var(--text-dim);">Silver Package</span>
+                  </div>
+                  <span style="font-size: 1.05rem; font-weight: 700; color: var(--secondary);">R$ 19,90</span>
+                </div>
+                
+                <div class="package-card" id="pkg-2" data-index="2" style="cursor: pointer; border: 1px solid var(--border); border-radius: 12px; padding: 12px; display: flex; align-items: center; justify-content: space-between; transition: all 0.2s; background: rgba(255,255,255,0.01);">
+                  <div>
+                    <strong style="color: #ffffff; display: block; font-size: 0.95rem;">100 Créditos</strong>
+                    <span style="font-size: 0.8rem; color: var(--text-dim);">Gold Package</span>
+                  </div>
+                  <span style="font-size: 1.05rem; font-weight: 700; color: var(--secondary);">R$ 34,90</span>
+                </div>
+              </div>
+              
+              <button type="button" class="btn btn-primary" id="btn-generate-pix" style="background: linear-gradient(to right, #10b981, #059669); font-weight: 600; width: 100%;">⚡ Gerar QR Code Pix</button>
+              
+              <!-- Resultado do PIX (QR Code e Copia/Cola) -->
+              <div id="pix-result-container" style="display: none; margin-top: 15px; padding: 15px; border-radius: 12px; background: rgba(255,255,255,0.02); border: 1px dashed var(--border); text-align: center;">
+                <p style="font-size: 0.82rem; color: var(--text-dim); margin-bottom: 12px;">Escaneie o QR Code abaixo ou copie o código Pix Copia e Cola:</p>
+                
+                <div style="background: #ffffff; padding: 10px; border-radius: 12px; display: inline-block; margin-bottom: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                  <img id="pix-qr-img" src="" alt="QR Code PIX" style="width: 150px; height: 150px; display: block; margin: 0 auto;">
+                </div>
+                
+                <div class="setting-group" style="text-align: left; margin-bottom: 12px;">
+                  <label style="font-size: 0.75rem; text-transform: uppercase;">Pix Copia e Cola</label>
+                  <div style="display: flex; gap: 8px; margin-top: 4px;">
+                    <input type="text" id="pix-copy-paste-code" readonly style="flex: 1; font-size: 0.8rem; padding: 8px; background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 6px; color: #ffffff;" value="">
+                    <button type="button" id="btn-copy-pix" class="btn" style="background: rgba(255,255,255,0.08); border: 1px solid var(--border); padding: 0 12px; font-size: 0.85rem; color: #ffffff;">Copiar</button>
+                  </div>
+                </div>
+                
+                <div id="pix-waiting-status" style="display: flex; align-items: center; justify-content: center; gap: 6px; color: var(--secondary); font-size: 0.85rem; font-weight: 600; margin-top: 10px;">
+                  <span class="status-dot" style="background: var(--secondary); box-shadow: 0 0 6px var(--secondary); width: 8px; height: 8px; border-radius: 50%;"></span>
+                  <span>Aguardando pagamento Pix...</span>
+                </div>
+                
+                <button type="button" class="btn" id="btn-verify-pix" style="background: rgba(255,255,255,0.06); border: 1px solid var(--border); width: 100%; margin-top: 12px; font-size: 0.85rem; color: #ffffff;">✓ Verificar Pagamento</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Settings Panel (Right) -->
+      <section class="card glass-card">
+        <h2 class="card-title text-gradient" id="title-settings">Configurações Gerais</h2>
+        
+        <form id="settings-form" class="settings-form">
+          <div class="setting-group">
+            <label for="select-lang" id="lbl-lang">Idioma da Interface</label>
+            <select id="select-lang" name="language">
+              <option value="pt">Português (Brasil)</option>
+              <option value="en">English (US)</option>
+            </select>
+          </div>
+
+          <div class="setting-group">
+            <label for="select-theme" id="lbl-theme">Tema Visual</label>
+            <select id="select-theme" name="theme">
+              <option value="cyberpunk">Neon Cyberpunk</option>
+              <option value="obsidian">Glass Obsidian</option>
+              <option value="dusk">Purple Dusk</option>
+            </select>
+          </div>
+
+          <div class="setting-group">
+            <label for="select-fontsize" id="lbl-fontsize">Tamanho da Fonte (Dropdown)</label>
+            <select id="select-fontsize" name="fontSize">
+              <option value="small">Pequeno (13px)</option>
+              <option value="medium">Médio (14px)</option>
+              <option value="large">Grande (16px)</option>
+            </select>
+          </div>
+
+          <div class="setting-group checkbox-group">
+            <input type="checkbox" id="chk-autoopen" name="autoOpen" checked>
+            <label for="chk-autoopen" id="lbl-autoopen">Abrir barra automaticamente ao carregar vídeos</label>
+          </div>
+
+          <!-- Advanced Custom API Settings (Local first, but key-ready) -->
+          <div class="setting-group advanced-api-key" style="display: none;">
+            <label for="txt-apikey" id="lbl-apikey">API Key Externa (Opcional Gemini/OpenAI)</label>
+            <input type="password" id="txt-apikey" name="apiKey" placeholder="Seu token privado da API...">
+            <span class="field-info" id="info-apikey">Deixe em branco para usar a conexão oficial do ecossistema.</span>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="btn-save">Salvar Preferências</button>
+          <div id="save-status" class="save-status hidden">Preferências salvas com sucesso!</div>
+        </form>
+      </section>
+      
+    </main>
+
+    <!-- Footer Links / Brand -->
+    <footer class="app-footer">
+      <div class="footer-links">
+        <a href="../docstemas/index.html" class="footer-link" id="lnk-portal">Portal de Apps 4U</a>
+        <span class="separator">•</span>
+        <a href="../privacy.html" target="_blank" class="footer-link" id="lnk-privacy">Privacidade</a>
+        <span class="separator">•</span>
+        <a href="../terms.html" target="_blank" class="footer-link" id="lnk-terms">Termos de Uso</a>
+        <span class="separator">•</span>
+        <a href="../support.html" target="_blank" class="footer-link" id="lnk-support">Suporte</a>
+      </div>
+      <p class="copyright">
+        © <span id="current-year">2026</span> TubeMind AI. Todos os direitos reservados. Feito com amor por 
+        <a href="https://4u.ia.br" target="_blank" class="hover:text-amber-500 dark:hover:text-yellow-400 font-bold transition-colors" style="color: var(--secondary); text-decoration: none; font-weight: 600;">4u.ia.br</a>.
+      </p>
+    </footer>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
